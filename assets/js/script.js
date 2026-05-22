@@ -8,6 +8,7 @@ if (btnMenu) {
     });
 }
 
+
 // FAQ - clica na pergunta pra mostrar/esconder a resposta
 var perguntas = document.querySelectorAll('.pergunta');
 
@@ -16,6 +17,7 @@ for (var i = 0; i < perguntas.length; i++) {
         this.parentElement.classList.toggle('aberto');
     });
 }
+
 
 // valida o formulario de contato antes de enviar
 var form = document.getElementById('formContato');
@@ -64,6 +66,7 @@ if (form) {
         }
     });
 }
+
 
 // simulador de pontos - clica numa acao e mostra quantos pontos ganha
 var acoes = document.querySelectorAll('.acao');
