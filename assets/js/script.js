@@ -61,6 +61,7 @@ if (form) {
 
         // se passou em todas as validacoes, mostra mensagem de sucesso
         if (temErro == false) {
+            console.log('Mensagem enviada:', { nome: nome, email: email, mensagem: mensagem });
             document.getElementById('sucesso').style.display = 'block';
             form.reset();
         }
