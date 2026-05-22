@@ -28,6 +28,16 @@
 }
 
 
+/* imagem explicativa entre as stats e o simulador */
+.img-acao {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto 0;
+    border-radius: 8px;
+}
+
+
 /* simulador de pontos */
 .simulador {
     background-color: #fff;

@@ -31,3 +31,9 @@
 .roadmap strong {
     color: var(--verde-escuro);
 }
+
+.roadmap img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
