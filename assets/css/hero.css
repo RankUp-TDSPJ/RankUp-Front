@@ -1,0 +1,68 @@
+/* banner principal (so aparece no index) */
+.banner {
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde-claro));
+    color: #fff;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.banner h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+/* botao principal */
+.botao {
+    display: inline-block;
+    background-color: #fff;
+    color: var(--verde-escuro);
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.botao:hover {
+    background-color: var(--verde-escuro);
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+
+/* ajustes pra telas menores */
+@media (max-width: 992px) {
+    .banner h1 {
+        font-size: 28px;
+    }
+
+    .banner p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding: 50px 15px;
+    }
+
+    .banner h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 20px;
+    }
+
+    .banner p {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,17 @@
+/* rodape do site */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--verde-claro);
+}
