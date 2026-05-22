@@ -41,6 +41,13 @@ header {
     color: var(--verde-escuro);
 }
 
+/* botao CTA no header */
+.botao-pequeno {
+    padding: 8px 18px;
+    font-size: 13px;
+}
+
+
 /* botao do menu hamburguer (fica escondido no desktop) */
 .btn-menu {
     display: none;
@@ -52,10 +59,14 @@ header {
 }
 
 
-/* no mobile: mostra o botao hamburguer e esconde o menu */
+/* no mobile: mostra o botao hamburguer, esconde o menu e o CTA do header */
 @media (max-width: 768px) {
     .btn-menu {
         display: block;
+    }
+
+    .topo .botao-pequeno {
+        display: none;
     }
 
     .menu {

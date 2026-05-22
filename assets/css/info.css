@@ -37,3 +37,88 @@
     width: 100%;
     height: auto;
 }
+
+
+/* secao de impacto coletivo (caixa verde clara com stats) na home */
+.impacto {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 50px;
+}
+
+.impacto-conteudo {
+    background-color: var(--verde-suave);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.impacto-imagem {
+    width: 100px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.impacto-texto {
+    flex: 1;
+    min-width: 220px;
+}
+
+.impacto-texto h2 {
+    color: var(--verde-escuro);
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.impacto-texto h2 span {
+    color: var(--verde-claro);
+}
+
+.impacto-texto p {
+    color: var(--cinza-texto);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.impacto-stats {
+    display: flex;
+    gap: 30px;
+    flex-shrink: 0;
+}
+
+.impacto-stats > div {
+    text-align: center;
+}
+
+.impacto-stats i {
+    font-size: 22px;
+    color: var(--verde-escuro);
+    margin-bottom: 4px;
+}
+
+.impacto-stats .numero {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--verde-escuro);
+    margin: 0;
+}
+
+.impacto-stats p:last-child {
+    color: var(--cinza-texto);
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .impacto-conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .impacto-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

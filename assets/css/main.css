@@ -47,23 +47,34 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     flex: 1;
     min-width: 250px;
-    text-align: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    row-gap: 8px;
 }
 
 .card i {
-    font-size: 36px;
+    font-size: 22px;
     color: var(--verde-escuro);
-    margin-bottom: 12px;
+    background-color: var(--verde-suave);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card h3 {
-    margin-bottom: 10px;
     color: #333;
+    align-self: center;
 }
 
 .card p {
     color: var(--cinza-texto);
     font-size: 14px;
+    line-height: 1.5;
+    grid-column: 1 / -1;
 }
 
 

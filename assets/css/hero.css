@@ -1,68 +1,121 @@
 /* banner principal (so aparece no index) */
 .banner {
-    background: linear-gradient(135deg, var(--verde-escuro), var(--verde-claro));
-    color: #fff;
-    text-align: center;
-    padding: 70px 20px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
-.banner h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
+.banner-texto {
+    flex: 1;
 }
 
-.banner p {
-    font-size: 17px;
-    margin-bottom: 25px;
-}
-
-/* botao principal */
-.botao {
-    display: inline-block;
-    background-color: #fff;
+.banner-texto h1 {
+    font-size: 42px;
     color: var(--verde-escuro);
-    padding: 12px 28px;
+    margin-bottom: 18px;
+    line-height: 1.15;
+}
+
+.banner-texto h1 span {
+    color: var(--verde-claro);
+}
+
+.banner-texto p {
+    font-size: 16px;
+    color: var(--cinza-texto);
+    margin-bottom: 28px;
+    line-height: 1.5;
+    max-width: 480px;
+}
+
+.banner-botoes {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.banner-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-imagem img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* botao principal (preenchido) */
+.botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--verde-escuro);
+    color: #fff;
+    padding: 12px 24px;
     border-radius: 6px;
     font-weight: bold;
-    border: none;
+    border: 2px solid var(--verde-escuro);
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .botao:hover {
+    background-color: var(--verde-claro);
+    border-color: var(--verde-claro);
+    color: #fff;
+}
+
+/* variante outline */
+.botao-outline {
+    background-color: transparent;
+    color: var(--verde-escuro);
+}
+
+.botao-outline:hover {
     background-color: var(--verde-escuro);
     color: #fff;
-    border: 1px solid #fff;
 }
 
 
 /* ajustes pra telas menores */
 @media (max-width: 992px) {
-    .banner h1 {
-        font-size: 28px;
-    }
-
-    .banner p {
-        font-size: 15px;
+    .banner-texto h1 {
+        font-size: 32px;
     }
 }
 
 @media (max-width: 768px) {
     .banner {
-        padding: 50px 15px;
+        flex-direction: column-reverse;
+        padding: 40px 0;
+        text-align: center;
     }
 
-    .banner h1 {
-        font-size: 24px;
+    .banner-texto p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner-botoes {
+        justify-content: center;
+    }
+
+    .banner-imagem img {
+        max-width: 280px;
+    }
+
+    .banner-texto h1 {
+        font-size: 26px;
     }
 }
 
 @media (max-width: 480px) {
-    .banner h1 {
-        font-size: 20px;
-    }
-
-    .banner p {
-        font-size: 14px;
+    .banner-texto h1 {
+        font-size: 22px;
     }
 }
