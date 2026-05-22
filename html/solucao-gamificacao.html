@@ -1,82 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contato - RankUp+</title>
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamificação - RankUp+</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
     <!-- cabecalho com logo e menu -->
     <header>
-      <div class="topo">
-        <a href="index.html" class="logo">RankUp+</a>
+        <div class="topo">
+            <a href="index.html" class="logo">RankUp+</a>
 
-        <nav>
-          <ul class="menu" id="menu">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="solucao-ranking.html">Ranking</a></li>
-            <li><a href="solucao-gamificacao.html">Gamificação</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="integrantes.html">Equipe</a></li>
-            <li><a href="contato.html">Contato</a></li>
-          </ul>
-        </nav>
+            <nav>
+                <ul class="menu" id="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="solucao-ranking.html">Ranking</a></li>
+                    <li><a href="solucao-gamificacao.html">Gamificação</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="integrantes.html">Equipe</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
 
-        <button class="btn-menu" id="btnMenu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
+            <button class="btn-menu" id="btnMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </header>
 
-    <!-- formulario de contato (JS valida os campos antes de enviar) -->
+
+    <!-- painel com os 4 cards de estatisticas do usuario -->
     <section class="secao">
-      <h2>Fale com a gente</h2>
+        <h2>Meu painel</h2>
 
-      <form class="formulario" id="formContato">
-        <div id="sucesso" class="sucesso">Mensagem enviada com sucesso!</div>
+        <div class="stats">
+            <div class="stat">
+                <p class="numero">320</p>
+                <p>Pontos acumulados</p>
+            </div>
+            <div class="stat">
+                <p class="numero">12</p>
+                <p>Ações realizadas</p>
+            </div>
+            <div class="stat">
+                <p class="numero">48 kg</p>
+                <p>CO₂ economizado</p>
+            </div>
+            <div class="stat">
+                <p class="numero">#28</p>
+                <p>Posição no ranking</p>
+            </div>
+        </div>
 
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" placeholder="Digite seu nome" />
-        <span id="erroNome" class="erro"
-          >O nome precisa ter pelo menos 3 letras.</span
-        >
 
-        <label for="email">E-mail:</label>
-        <input type="text" id="email" placeholder="exemplo@email.com" />
-        <span id="erroEmail" class="erro">Digite um e-mail válido.</span>
+        <!-- simulador de pontos: usuario escolhe uma acao e o JS calcula os pontos -->
+        <h2>Simulador de pontos</h2>
+        <p class="subtitulo">
+            Escolha uma ação e veja quantos pontos você ganharia.
+        </p>
 
-        <label for="assunto">Assunto:</label>
-        <select id="assunto">
-          <option value="duvida">Dúvida</option>
-          <option value="sugestao">Sugestão</option>
-          <option value="parceria">Parceria</option>
-        </select>
+        <div class="simulador">
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea
-          id="mensagem"
-          placeholder="Escreva sua mensagem aqui..."
-        ></textarea>
-        <span id="erroMensagem" class="erro"
-          >A mensagem precisa ter pelo menos 10 letras.</span
-        >
+            <div class="acoes">
+                <div class="acao" id="plantar">
+                    <i class="fa-solid fa-tree"></i>
+                    <h3>Plantar árvore</h3>
+                </div>
 
-        <button type="submit">Enviar</button>
-      </form>
+                <div class="acao" id="reciclar">
+                    <i class="fa-solid fa-recycle"></i>
+                    <h3>Reciclar lixo</h3>
+                </div>
+
+                <div class="acao" id="transporte">
+                    <i class="fa-solid fa-bus"></i>
+                    <h3>Transporte público</h3>
+                </div>
+
+                <div class="acao" id="energia">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Economizar energia</h3>
+                </div>
+            </div>
+
+            <div class="resultado" id="resultado">
+                <p>Você ganharia</p>
+                <p class="pontos"><span id="pontos">0</span></p>
+                <p>pontos com essa ação!</p>
+            </div>
+
+        </div>
     </section>
+
 
     <!-- rodape -->
     <footer>
-      <p>RankUp+</p>
-      <p>2026</p>
+        <p>RankUp+</p>
+        <p>2026</p>
     </footer>
 
-    <script src="../assets/js/script.js"></script>
-  </body>
+    <script src="assets/js/script.js"></script>
+</body>
 </html>
