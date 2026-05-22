@@ -1,0 +1,32 @@
+/* cores do site */
+:root {
+    --verde-escuro: #2A6041;
+    --verde-claro: #4A8B5F;
+    --cinza-texto: #666;
+}
+
+/* reset basico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
