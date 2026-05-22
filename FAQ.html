@@ -1,118 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ - RankUp+</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- cabecalho com logo e menu -->
     <header>
-        <div class="topo">
-            <a href="index.html" class="logo">RankUp+</a>
+      <div class="topo">
+        <a href="index.html" class="logo">RankUp+</a>
 
-            <nav>
-                <ul class="menu" id="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="solucao-ranking.html">Ranking</a></li>
-                    <li><a href="solucao-gamificacao.html">Gamificação</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="integrantes.html">Equipe</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
+        <nav>
+          <ul class="menu" id="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="solucao-ranking.html">Ranking</a></li>
+            <li><a href="solucao-gamificacao.html">Gamificação</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="integrantes.html">Equipe</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
 
-            <button class="btn-menu" id="btnMenu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+        <button class="btn-menu" id="btnMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </header>
 
     <!-- lista de perguntas frequentes em accordion (JS controla o aberto/fechado) -->
     <section class="secao">
-        <h2>Perguntas frequentes</h2>
+      <h2>Perguntas frequentes</h2>
 
-        <div class="faq-item">
-            <button class="pergunta">
-                Como eu ganho pontos no RankUp+?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="resposta">
-                <p>Você grava um vídeo curto de uma ação sustentável (plantar uma árvore, reciclar, usar transporte público, economizar energia) e envia pelo app. Nossa IA valida a ação e libera os pontos.</p>
-            </div>
+      <div class="faq-item">
+        <button class="pergunta">
+          Como eu ganho pontos no RankUp+?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="resposta">
+          <p>
+            Você grava um vídeo curto de uma ação sustentável (plantar uma
+            árvore, reciclar, usar transporte público, economizar energia) e
+            envia pelo app. Nossa IA valida a ação e libera os pontos.
+          </p>
         </div>
+      </div>
 
-        <div class="faq-item">
-            <button class="pergunta">
-                Como o sistema valida as ações?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="resposta">
-                <p>Usamos visão computacional (Google Cloud Video AI) para reconhecer a ação no vídeo, validação de geolocalização e metadados. Em casos com baixa confiança, a submissão passa por revisão humana.</p>
-            </div>
+      <div class="faq-item">
+        <button class="pergunta">
+          Como o sistema valida as ações?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="resposta">
+          <p>
+            Usamos visão computacional (Google Cloud Video AI) para reconhecer a
+            ação no vídeo, validação de geolocalização e metadados. Em casos com
+            baixa confiança, a submissão passa por revisão humana.
+          </p>
         </div>
+      </div>
 
-        <div class="faq-item">
-            <button class="pergunta">
-                O que eu posso fazer com os pontos?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="resposta">
-                <p>Você pode trocar por cupons em parceiros ESG (como a Natura), doar para ONGs (SOS Mata Atlântica, WWF, Instituto Akatu) ou converter em benefícios financeiros via carteira digital.</p>
-            </div>
+      <div class="faq-item">
+        <button class="pergunta">
+          O que eu posso fazer com os pontos?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="resposta">
+          <p>
+            Você pode trocar por cupons em parceiros ESG (como a Natura), doar
+            para ONGs (SOS Mata Atlântica, WWF, Instituto Akatu) ou converter em
+            benefícios financeiros via carteira digital.
+          </p>
         </div>
+      </div>
 
-        <div class="faq-item">
-            <button class="pergunta">
-                Como eu sei o impacto real das minhas ações?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="resposta">
-                <p>Cada ação validada é convertida em quilos de CO₂ economizado, usando dados da Climatiq API. Você acompanha esse histórico no seu painel.</p>
-            </div>
+      <div class="faq-item">
+        <button class="pergunta">
+          Como eu sei o impacto real das minhas ações?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="resposta">
+          <p>
+            Cada ação validada é convertida em quilos de CO₂ economizado, usando
+            dados da Climatiq API. Você acompanha esse histórico no seu painel.
+          </p>
         </div>
+      </div>
 
-        <div class="faq-item">
-            <button class="pergunta">
-                Meus dados estão seguros?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="resposta">
-                <p>Sim. O RankUp+ segue a LGPD e você tem controle total sobre seus dados, histórico e permissões a qualquer momento.</p>
-            </div>
+      <div class="faq-item">
+        <button class="pergunta">
+          Meus dados estão seguros?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="resposta">
+          <p>
+            Sim. O RankUp+ segue a LGPD e você tem controle total sobre seus
+            dados, histórico e permissões a qualquer momento.
+          </p>
         </div>
+      </div>
 
-        <div class="faq-item">
-            <button class="pergunta">
-                O app é gratuito?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="resposta">
-                <p>Sim, o cadastro e o uso básico são gratuitos (modelo freemium). Tem também um plano premium com mais benefícios.</p>
-            </div>
+      <div class="faq-item">
+        <button class="pergunta">
+          O app é gratuito?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="resposta">
+          <p>
+            Sim, o cadastro e o uso básico são gratuitos (modelo freemium). Tem
+            também um plano premium com mais benefícios.
+          </p>
         </div>
+      </div>
 
-        <div class="faq-item">
-            <button class="pergunta">
-                Existe ranking entre os usuários?
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="resposta">
-                <p>Sim. Você acompanha sua posição no ranking diário, semanal e mensal, podendo competir com amigos e outros usuários.</p>
-            </div>
+      <div class="faq-item">
+        <button class="pergunta">
+          Existe ranking entre os usuários?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="resposta">
+          <p>
+            Sim. Você acompanha sua posição no ranking diário, semanal e mensal,
+            podendo competir com amigos e outros usuários.
+          </p>
         </div>
+      </div>
     </section>
 
     <!-- rodape -->
     <footer>
-        <p>RankUp+</p>
-        <p>2026</p>
+      <p>RankUp+</p>
+      <p>2026</p>
     </footer>
 
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>
