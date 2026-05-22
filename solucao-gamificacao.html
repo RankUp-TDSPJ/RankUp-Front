@@ -1,76 +1,82 @@
 !DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contato - RankUp+</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- cabecalho com logo e menu -->
     <header>
-        <div class="topo">
-            <a href="index.html" class="logo">RankUp+</a>
+      <div class="topo">
+        <a href="index.html" class="logo">RankUp+</a>
 
-            <nav>
-                <ul class="menu" id="menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="solucao-ranking.html">Ranking</a></li>
-                    <li><a href="solucao-gamificacao.html">Gamificação</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="integrantes.html">Equipe</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
+        <nav>
+          <ul class="menu" id="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="solucao-ranking.html">Ranking</a></li>
+            <li><a href="solucao-gamificacao.html">Gamificação</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="integrantes.html">Equipe</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
 
-            <button class="btn-menu" id="btnMenu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+        <button class="btn-menu" id="btnMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </header>
-
 
     <!-- formulario de contato (JS valida os campos antes de enviar) -->
     <section class="secao">
-        <h2>Fale com a gente</h2>
+      <h2>Fale com a gente</h2>
 
-        <form class="formulario" id="formContato">
+      <form class="formulario" id="formContato">
+        <div id="sucesso" class="sucesso">Mensagem enviada com sucesso!</div>
 
-            <div id="sucesso" class="sucesso">Mensagem enviada com sucesso!</div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" placeholder="Digite seu nome" />
+        <span id="erroNome" class="erro"
+          >O nome precisa ter pelo menos 3 letras.</span
+        >
 
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" placeholder="Digite seu nome">
-            <span id="erroNome" class="erro">O nome precisa ter pelo menos 3 letras.</span>
+        <label for="email">E-mail:</label>
+        <input type="text" id="email" placeholder="exemplo@email.com" />
+        <span id="erroEmail" class="erro">Digite um e-mail válido.</span>
 
-            <label for="email">E-mail:</label>
-            <input type="text" id="email" placeholder="exemplo@email.com">
-            <span id="erroEmail" class="erro">Digite um e-mail válido.</span>
+        <label for="assunto">Assunto:</label>
+        <select id="assunto">
+          <option value="duvida">Dúvida</option>
+          <option value="sugestao">Sugestão</option>
+          <option value="parceria">Parceria</option>
+        </select>
 
-            <label for="assunto">Assunto:</label>
-            <select id="assunto">
-                <option value="duvida">Dúvida</option>
-                <option value="sugestao">Sugestão</option>
-                <option value="parceria">Parceria</option>
-            </select>
+        <label for="mensagem">Mensagem:</label>
+        <textarea
+          id="mensagem"
+          placeholder="Escreva sua mensagem aqui..."
+        ></textarea>
+        <span id="erroMensagem" class="erro"
+          >A mensagem precisa ter pelo menos 10 letras.</span
+        >
 
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
-            <span id="erroMensagem" class="erro">A mensagem precisa ter pelo menos 10 letras.</span>
-
-            <button type="submit">Enviar</button>
-        </form>
+        <button type="submit">Enviar</button>
+      </form>
     </section>
-
 
     <!-- rodape -->
     <footer>
-        <p>RankUp+</p>
-        <p>2026</p>
+      <p>RankUp+</p>
+      <p>2026</p>
     </footer>
 
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>
