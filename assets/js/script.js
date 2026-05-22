@@ -100,3 +100,27 @@ for (var j = 0; j < acoes.length; j++) {
         resultado.classList.add('mostra');
     });
 }
+
+
+// clica numa imagem .ampliar pra abrir ela grande em cima da pagina
+var imagensAmpliar = document.querySelectorAll('.ampliar');
+
+for (var n = 0; n < imagensAmpliar.length; n++) {
+    imagensAmpliar[n].style.cursor = 'zoom-in';
+    imagensAmpliar[n].addEventListener('click', function() {
+        var overlay = document.createElement('div');
+        overlay.className = 'overlay-ampliar';
+
+        var imgGrande = document.createElement('img');
+        imgGrande.src = this.src;
+        imgGrande.alt = this.alt;
+
+        overlay.appendChild(imgGrande);
+        document.body.appendChild(overlay);
+
+        // clica no overlay pra fechar
+        overlay.addEventListener('click', function() {
+            overlay.remove();
+        });
+    });
+}
