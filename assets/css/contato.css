@@ -1,0 +1,68 @@
+/* formulario de contato */
+.formulario {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.formulario textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* botao de enviar */
+.formulario button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: var(--verde-escuro);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.formulario button:hover {
+    background-color: #1f4830;
+}
+
+/* mensagem de erro abaixo de cada campo (so aparece quando o JS valida) */
+.erro {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+    display: none;
+}
+
+/* mensagem que aparece quando envia o form com sucesso */
+.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+    display: none;
+}

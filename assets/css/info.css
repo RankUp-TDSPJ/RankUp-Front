@@ -1,0 +1,33 @@
+/* bloco de texto da pagina sobre */
+.texto-sobre {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.texto-sobre p {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* lista do roadmap */
+.roadmap {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.roadmap li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.roadmap li:last-child {
+    border-bottom: none;
+}
+
+.roadmap strong {
+    color: var(--verde-escuro);
+}

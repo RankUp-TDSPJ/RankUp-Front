@@ -1,0 +1,40 @@
+/* cada pergunta do FAQ */
+.faq-item {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.pergunta {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pergunta:hover {
+    background-color: #f9f9f9;
+}
+
+/* resposta comeca escondida (max-height 0) */
+.resposta {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    color: var(--cinza-texto);
+}
+
+/* quando o item ganha a classe "aberto" via JS, mostra a resposta */
+.faq-item.aberto .resposta {
+    padding: 0 20px 16px;
+    max-height: 200px;
+}
