@@ -18,6 +18,13 @@ header {
     font-size: 22px;
     font-weight: bold;
     color: var(--verde-escuro);
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    display: block;
 }
 
 /* menu de navegacao */
