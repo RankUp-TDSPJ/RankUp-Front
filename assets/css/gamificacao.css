@@ -1,0 +1,105 @@
+/* dashboard com os 4 cards de stats */
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.stat {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.stat .numero {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--verde-escuro);
+}
+
+.stat p {
+    color: var(--cinza-texto);
+    font-size: 14px;
+}
+
+
+/* simulador de pontos */
+.simulador {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* cada acao que o usuario pode escolher */
+.acao {
+    background-color: #f5f5f5;
+    border: 2px solid transparent;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+}
+
+.acao:hover {
+    border-color: var(--verde-claro);
+}
+
+/* quando o JS marca a acao como ativa */
+.acao.ativa {
+    border-color: var(--verde-escuro);
+    background-color: #e8f3ec;
+}
+
+.acao i {
+    font-size: 28px;
+    color: var(--verde-escuro);
+    margin-bottom: 6px;
+}
+
+/* resultado que aparece depois de clicar numa acao */
+.resultado {
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde-claro));
+    color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+
+.resultado.mostra {
+    display: block;
+}
+
+.resultado .pontos {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+/* no mobile cada card ocupa a tela toda */
+@media (max-width: 768px) {
+    .stat {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .resultado .pontos {
+        font-size: 32px;
+    }
+}
