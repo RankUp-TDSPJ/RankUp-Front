@@ -8,10 +8,15 @@ export function PointsResult({ acao }: PointsResultProps) {
   if (!acao) return null
 
   return (
-    <div className="rounded-lg bg-gradient-to-br from-[#2A6041] to-[#4A8B5F] p-[25px] text-center text-white">
-      <p>Você ganharia</p>
-      <p className="my-[10px] text-[32px] font-bold sm:text-[42px]">{acao.pontos}</p>
-      <p>pontos com essa ação!</p>
+    <div
+      // key força a animação a rodar de novo a cada troca de ação
+      key={acao.id}
+      className="animate-sobe-fade rounded-xl bg-gradient-to-br from-verde-escuro to-verde-claro p-6 text-center text-white shadow-lg shadow-verde-escuro/20 motion-reduce:animate-none"
+      aria-live="polite"
+    >
+      <p className="text-sm text-white/80">Você ganharia</p>
+      <p className="my-1 text-[40px] font-bold leading-none sm:text-[52px]">{acao.pontos}</p>
+      <p className="text-sm text-white/80">pontos com essa ação!</p>
     </div>
   )
 }

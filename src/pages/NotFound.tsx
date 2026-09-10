@@ -7,9 +7,9 @@ export function NotFound() {
   const navigate = useNavigate()
 
   return (
-    <div className="mx-auto flex w-[90%] max-w-[1100px] flex-col items-center gap-6 py-20 text-center">
-      <h1 className="text-3xl font-bold text-[#2A6041]">404 — Página não encontrada</h1>
-      <p className="text-[#666]">A página que você procura não existe ou foi movida.</p>
+    <div className="mx-auto flex w-[90%] max-w-[1100px] animate-sobe-fade flex-col items-center gap-6 py-24 text-center motion-reduce:animate-none">
+      <h1 className="text-3xl font-bold text-verde-escuro">404 — Página não encontrada</h1>
+      <p className="text-cinza">A página que você procura não existe ou foi movida.</p>
       <Button onClick={() => navigate('/')}>Voltar para a Home</Button>
     </div>
   )

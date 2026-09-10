@@ -28,14 +28,20 @@ export function ActionPicker({ acoes, selectedId, onSelect }: ActionPickerProps)
             type="button"
             onClick={() => onSelect(acao.id)}
             aria-pressed={isActive}
-            className={`min-w-[140px] flex-1 rounded-lg border-2 p-[15px] text-center transition-colors motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041] ${
+            className={`min-w-[140px] flex-1 rounded-xl border-2 p-4 text-center transition duration-200 motion-reduce:transition-none active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro ${
               isActive
-                ? 'border-[#2A6041] bg-[#e8f3ec]'
-                : 'border-transparent bg-[#f5f5f5] hover:border-[#4A8B5F]'
+                ? 'border-verde-escuro bg-verde-suave shadow-sm'
+                : 'border-borda bg-fundo hover:-translate-y-0.5 hover:border-verde-medio hover:bg-white'
             }`}
           >
-            <Icon className="mx-auto mb-[6px] h-7 w-7 text-[#2A6041]" />
-            <h3 className="font-semibold text-[#333]">{acao.nome}</h3>
+            <span
+              className={`mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full transition-colors motion-reduce:transition-none ${
+                isActive ? 'bg-verde-escuro text-white' : 'bg-verde-suave text-verde-escuro'
+              }`}
+            >
+              <Icon className="h-6 w-6" />
+            </span>
+            <h3 className="text-sm font-semibold text-grafite">{acao.nome}</h3>
           </button>
         )
       })}

@@ -7,15 +7,15 @@ type RankingTableProps = {
 
 export function RankingTable({ users }: RankingTableProps) {
   return (
-    <div className="overflow-x-auto rounded-lg bg-white">
+    <div className="overflow-x-auto rounded-xl bg-white ring-1 ring-borda">
       <table className="w-full min-w-[600px] border-collapse">
         <thead>
-          <tr className="bg-gradient-to-br from-[#2A6041] to-[#4A8B5F] text-left text-white">
-            <th className="p-[14px] font-semibold">Posição</th>
-            <th className="p-[14px] font-semibold">Nome</th>
-            <th className="p-[14px] font-semibold">Cidade</th>
-            <th className="p-[14px] font-semibold">CO₂ economizado</th>
-            <th className="p-[14px] font-semibold">Pontos</th>
+          <tr className="bg-gradient-to-br from-verde-escuro to-verde-claro text-left text-white">
+            <th className="p-4 text-xs font-bold uppercase tracking-wide">Posição</th>
+            <th className="p-4 text-xs font-bold uppercase tracking-wide">Nome</th>
+            <th className="p-4 text-xs font-bold uppercase tracking-wide">Cidade</th>
+            <th className="p-4 text-xs font-bold uppercase tracking-wide">CO₂ economizado</th>
+            <th className="p-4 text-xs font-bold uppercase tracking-wide">Pontos</th>
           </tr>
         </thead>
         <tbody>

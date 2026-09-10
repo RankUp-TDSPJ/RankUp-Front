@@ -9,7 +9,7 @@ export function Ranking() {
   const top3 = ranking.filter((user) => user.posicao <= 3)
 
   return (
-    <div className="mx-auto w-[90%] max-w-[1100px] py-12">
+    <div className="mx-auto w-[90%] max-w-[1100px] animate-sobe-fade py-16 motion-reduce:animate-none">
       <SectionTitle subtitle="Os usuários que mais economizaram CO₂ com ações sustentáveis este mês.">
         Ranking dos usuários
       </SectionTitle>

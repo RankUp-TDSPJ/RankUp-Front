@@ -29,7 +29,7 @@ export function ImageZoom({ src, alt, className }: ImageZoomProps) {
         type="button"
         onClick={() => setOpen(true)}
         aria-label={`Ampliar imagem: ${alt}`}
-        className="cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+        className="cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
       >
         <img src={src} alt={alt} className={className} />
       </button>

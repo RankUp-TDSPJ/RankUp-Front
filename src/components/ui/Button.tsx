@@ -22,15 +22,15 @@ type ButtonAsLinkProps = ButtonBaseProps &
 export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps
 
 const baseClasses =
-  'inline-flex items-center justify-center gap-2 rounded-md text-sm font-bold transition-colors motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]'
+  'inline-flex items-center justify-center gap-2 rounded-md text-sm font-bold transition-colors motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro'
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'border-2 border-[#2A6041] bg-[#2A6041] px-6 py-3 text-white hover:border-[#4A8B5F] hover:bg-[#4A8B5F]',
+    'border-2 border-verde-escuro bg-verde-escuro px-6 py-3 text-white hover:border-verde-medio hover:bg-verde-medio',
   ghost:
-    'border-2 border-[#2A6041] bg-transparent px-6 py-3 text-[#2A6041] hover:bg-[#2A6041] hover:text-white',
+    'border-2 border-verde-escuro bg-transparent px-6 py-3 text-verde-escuro hover:bg-verde-escuro hover:text-white',
   small:
-    'border-2 border-[#2A6041] bg-[#2A6041] px-[18px] py-2 text-[13px] text-white hover:border-[#4A8B5F] hover:bg-[#4A8B5F]',
+    'border-2 border-verde-escuro bg-verde-escuro px-[18px] py-2 text-[13px] text-white hover:border-verde-medio hover:bg-verde-medio',
 }
 
 export function Button(props: ButtonProps) {
