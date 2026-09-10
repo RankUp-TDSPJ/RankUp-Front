@@ -7,7 +7,7 @@ export function Faq() {
   useDocumentTitle('FAQ - RankUp+')
 
   return (
-    <div className="mx-auto w-[90%] max-w-[1100px] py-12">
+    <div className="mx-auto w-[90%] max-w-[1100px] animate-sobe-fade py-16 motion-reduce:animate-none">
       <SectionTitle>Perguntas frequentes</SectionTitle>
       <FaqAccordion items={faq} />
     </div>

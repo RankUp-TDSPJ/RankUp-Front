@@ -12,33 +12,33 @@ export function IntegranteDetalhe() {
 
   if (!integrante) {
     return (
-      <div className="mx-auto flex w-[90%] max-w-[1100px] flex-col items-center gap-6 py-20 text-center">
-        <h1 className="text-2xl font-bold text-[#2A6041]">Integrante não encontrado</h1>
-        <p className="text-[#666]">Não encontramos esse integrante na equipe.</p>
+      <div className="mx-auto flex w-[90%] max-w-[1100px] animate-sobe-fade flex-col items-center gap-6 py-24 text-center motion-reduce:animate-none">
+        <h1 className="text-2xl font-bold text-verde-escuro">Integrante não encontrado</h1>
+        <p className="text-cinza">Não encontramos esse integrante na equipe.</p>
         <Button to="/integrantes">Voltar para a equipe</Button>
       </div>
     )
   }
 
   return (
-    <div className="mx-auto w-[90%] max-w-[1100px] py-12">
+    <div className="mx-auto w-[90%] max-w-[1100px] animate-sobe-fade py-16 motion-reduce:animate-none">
       <Button to="/integrantes" variant="ghost" className="mb-8">
         Voltar para a equipe
       </Button>
 
       <div className="mx-auto max-w-[400px] rounded-lg bg-white p-8 text-center shadow-md">
-        <div className="mx-auto mb-5 h-[160px] w-[160px] overflow-hidden rounded-full bg-gradient-to-br from-[#2A6041] to-[#4A8B5F]">
+        <div className="mx-auto mb-5 h-[160px] w-[160px] overflow-hidden rounded-full bg-gradient-to-br from-verde-escuro to-verde-claro">
           <img
             src={integrante.foto}
             alt={`Foto de ${integrante.nome}`}
             className={['h-full w-full object-cover', integrante.fotoClassName].filter(Boolean).join(' ')}
           />
         </div>
-        <h1 className="mb-2 text-2xl font-bold text-[#2A6041]">{integrante.nome}</h1>
-        <p className="mb-1 text-[#666]">
+        <h1 className="mb-2 text-2xl font-bold text-verde-escuro">{integrante.nome}</h1>
+        <p className="mb-1 text-cinza">
           <strong>RM:</strong> {integrante.rm}
         </p>
-        <p className="mb-4 text-[#666]">
+        <p className="mb-4 text-cinza">
           <strong>Turma:</strong> {integrante.turma}
         </p>
         <div className="flex justify-center gap-3">
@@ -47,7 +47,7 @@ export function IntegranteDetalhe() {
             target="_blank"
             rel="noreferrer"
             aria-label={`LinkedIn de ${integrante.nome}`}
-            className="text-[#2A6041] hover:text-[#4A8B5F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+            className="text-verde-escuro hover:text-verde-medio focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
           >
             <IconLinkedin className="h-6 w-6" />
           </a>
@@ -56,7 +56,7 @@ export function IntegranteDetalhe() {
             target="_blank"
             rel="noreferrer"
             aria-label={`GitHub de ${integrante.nome}`}
-            className="text-[#2A6041] hover:text-[#4A8B5F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+            className="text-verde-escuro hover:text-verde-medio focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
           >
             <IconGithub className="h-6 w-6" />
           </a>

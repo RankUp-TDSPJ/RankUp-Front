@@ -13,10 +13,10 @@ export function Gamificacao() {
   const acaoSelecionada = acoes.find((acao) => acao.id === selectedId) ?? null
 
   return (
-    <div className="mx-auto w-[90%] max-w-[1100px] py-12">
+    <div className="mx-auto w-[90%] max-w-[1100px] animate-sobe-fade py-16 motion-reduce:animate-none">
       <SectionTitle>Meu painel</SectionTitle>
 
-      <div className="mb-10 flex flex-wrap gap-5">
+      <div className="mb-20 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard value="320" label="Pontos acumulados" />
         <StatCard value="12" label="Ações realizadas" />
         <StatCard value="48 kg" label="CO₂ economizado" />
@@ -27,7 +27,7 @@ export function Gamificacao() {
         Simulador de pontos
       </SectionTitle>
 
-      <div className="rounded-lg bg-white p-[30px]">
+      <div className="rounded-xl bg-white p-6 ring-1 ring-borda sm:p-8">
         <ActionPicker acoes={acoes} selectedId={selectedId} onSelect={setSelectedId} />
         <PointsResult acao={acaoSelecionada} />
       </div>
@@ -35,7 +35,7 @@ export function Gamificacao() {
       <ImageZoom
         src="/img/acao.png"
         alt="Como registrar sua ação pelo celular"
-        className="mx-auto mt-10 block w-full max-w-[600px] rounded-lg"
+        className="mx-auto mt-12 block w-full max-w-[600px] rounded-xl"
       />
     </div>
   )
