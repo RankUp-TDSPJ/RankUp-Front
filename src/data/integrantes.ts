@@ -1,0 +1,51 @@
+import type { Integrante } from '../types'
+
+export const integrantes: Integrante[] = [
+  {
+    slug: 'tiago-borges',
+    nome: 'Tiago Borges Dos Santos',
+    rm: '569926',
+    turma: '1TDSPJ',
+    foto: '/img/tiago.jpg',
+    fotoClassName: 'object-[center_20%]',
+    linkedin: 'https://www.linkedin.com/in/tiago-borges-2251933a6',
+    github: 'https://github.com/tiagostnz',
+  },
+  {
+    slug: 'flavio-kuratomi',
+    nome: 'Flávio Luiz Kuratomi Junior',
+    rm: '571211',
+    turma: '1TDSPJ',
+    foto: '/img/flavio.png',
+    fotoClassName: 'scale-[1.6] origin-[40%_30%]',
+    linkedin: 'https://www.linkedin.com/in/flavio-luiz-kuratomi-junior-7878ab317/',
+    github: 'https://github.com/kkuras',
+  },
+  {
+    slug: 'joao-victor',
+    nome: 'João Victor de Jesus Bernardo',
+    rm: '568729',
+    turma: '1TDSPJ',
+    foto: '/img/joao.jpg',
+    linkedin: 'https://www.linkedin.com/in/joaovjbernardo/',
+    github: 'https://github.com/joaovjbernardo',
+  },
+  {
+    slug: 'pedro-andreotti',
+    nome: 'Pedro Andreotti Pugliesi',
+    rm: '569357',
+    turma: '1TDSPJ',
+    foto: '/img/pedro.jpg',
+    linkedin: 'https://www.linkedin.com/in/pedro-andreotti-8270a3404/',
+    github: 'https://github.com/PedroAndreottiPugliesi',
+  },
+  {
+    slug: 'henrique-osuka',
+    nome: 'Henrique Osuka',
+    rm: '571324',
+    turma: '1TDSPJ',
+    foto: '/img/henrique.jpg',
+    linkedin: 'https://www.linkedin.com/in/henrique-osuka-78a0993b5/',
+    github: 'https://github.com/HenriqueOsuka',
+  },
+]
