@@ -31,7 +31,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         type="button"
         onClick={onClose}
         aria-label="Fechar menu"
-        className="self-end text-[#2A6041] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+        className="self-end text-verde-escuro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
       >
         <IconClose className="h-5 w-5" />
       </button>
@@ -44,8 +44,8 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               onClick={onClose}
               className={({ isActive }) =>
                 [
-                  'text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]',
-                  isActive ? 'font-bold text-[#2A6041]' : 'text-[#333]',
+                  'text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro',
+                  isActive ? 'font-bold text-verde-escuro' : 'text-grafite',
                 ].join(' ')
               }
             >

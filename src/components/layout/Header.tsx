@@ -19,7 +19,7 @@ export function Header() {
       <div className="relative mx-auto flex w-[90%] max-w-[1100px] items-center justify-between">
         <Link
           to="/"
-          className="flex items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+          className="flex items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
         >
           <img src="/img/logo.png" alt="RankUp+" className="h-[50px]" />
         </Link>
@@ -33,9 +33,9 @@ export function Header() {
                   end={item.to === '/'}
                   className={({ isActive }) =>
                     [
-                      'text-[15px] transition-colors motion-reduce:transition-none hover:text-[#2A6041]',
-                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]',
-                      isActive ? 'font-bold text-[#2A6041]' : 'text-[#333]',
+                      'text-[15px] transition-colors motion-reduce:transition-none hover:text-verde-escuro',
+                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro',
+                      isActive ? 'font-bold text-verde-escuro' : 'text-grafite',
                     ].join(' ')
                   }
                 >
@@ -52,7 +52,7 @@ export function Header() {
 
         <button
           type="button"
-          className="text-2xl text-[#2A6041] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041] lg:hidden"
+          className="text-2xl text-verde-escuro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro lg:hidden"
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
