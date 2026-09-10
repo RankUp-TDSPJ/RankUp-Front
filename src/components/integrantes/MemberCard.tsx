@@ -8,44 +8,44 @@ type MemberCardProps = {
 
 export function MemberCard({ integrante }: MemberCardProps) {
   return (
-    <div className="w-full rounded-lg bg-white p-6 text-center shadow-md md:w-[220px]">
+    <div className="flex h-full w-full flex-col items-center rounded-xl bg-white p-6 text-center ring-1 ring-borda transition duration-200 motion-reduce:transition-none hover:-translate-y-1 hover:shadow-lg hover:ring-verde-claro/40">
       <Link
         to={`/integrantes/${integrante.slug}`}
-        className="block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+        className="group block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
       >
-        <div className="mx-auto mb-[15px] h-[100px] w-[100px] overflow-hidden rounded-full bg-gradient-to-br from-[#2A6041] to-[#4A8B5F] sm:h-[120px] sm:w-[120px]">
+        <div className="mx-auto mb-4 h-[100px] w-[100px] overflow-hidden rounded-full bg-gradient-to-br from-verde-escuro to-verde-claro ring-2 ring-verde-suave sm:h-[112px] sm:w-[112px]">
           <img
             src={integrante.foto}
             alt={`Foto de ${integrante.nome}`}
             className={['h-full w-full object-cover', integrante.fotoClassName].filter(Boolean).join(' ')}
           />
         </div>
-        <h3 className="mb-2 font-semibold text-[#333] hover:text-[#2A6041]">{integrante.nome}</h3>
+        <h3 className="mb-2 font-semibold leading-snug text-grafite transition-colors motion-reduce:transition-none group-hover:text-verde-escuro">
+          {integrante.nome}
+        </h3>
       </Link>
-      <p className="mb-[5px] text-sm text-[#666]">
-        <strong>RM:</strong> {integrante.rm}
-      </p>
-      <p className="mb-[5px] text-sm text-[#666]">
-        <strong>Turma:</strong> {integrante.turma}
-      </p>
-      <div className="mt-3 flex justify-center gap-[10px]">
+
+      <p className="text-sm text-cinza">RM {integrante.rm}</p>
+      <p className="text-sm text-cinza">Turma {integrante.turma}</p>
+
+      <div className="mt-auto flex justify-center gap-2 pt-4">
         <a
           href={integrante.linkedin}
           target="_blank"
           rel="noreferrer"
           aria-label={`LinkedIn de ${integrante.nome}`}
-          className="text-[#2A6041] hover:text-[#4A8B5F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-verde-suave text-verde-escuro transition-colors motion-reduce:transition-none hover:bg-verde-escuro hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
         >
-          <IconLinkedin className="h-5 w-5" />
+          <IconLinkedin className="h-[18px] w-[18px]" />
         </a>
         <a
           href={integrante.github}
           target="_blank"
           rel="noreferrer"
           aria-label={`GitHub de ${integrante.nome}`}
-          className="text-[#2A6041] hover:text-[#4A8B5F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2A6041]"
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-verde-suave text-verde-escuro transition-colors motion-reduce:transition-none hover:bg-verde-escuro hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
         >
-          <IconGithub className="h-5 w-5" />
+          <IconGithub className="h-[18px] w-[18px]" />
         </a>
       </div>
     </div>
