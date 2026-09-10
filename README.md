@@ -27,8 +27,6 @@ A plataforma permite que o usuário:
 
 Esta sprint migrou o projeto de **HTML/CSS/JavaScript estático** para uma **SPA em React**. Toda a estilização foi reescrita em classes utilitárias do TailwindCSS, o JavaScript imperativo foi substituído por estado do React, e os dados que antes estavam fixos no HTML foram extraídos para arrays tipados em `src/data/`.
 
-O projeto é **100% front-end**: não há consumo de API nesta sprint, e os dados de ranking, integrantes, FAQ e ações do simulador são estáticos e tipados.
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
@@ -37,7 +35,7 @@ O projeto é **100% front-end**: não há consumo de API nesta sprint, e os dado
 |------------|--------|------------|
 | **React** | 18.3 | Biblioteca de interface, componentização e estado |
 | **Vite** | 5.4 | Build tool e servidor de desenvolvimento |
-| **TypeScript** | 5.6 | Tipagem estática (`strict: true`, zero `any`) |
+| **TypeScript** | 5.6 | Tipagem estática  |
 | **TailwindCSS** | 3.4 | Estilização por classes utilitárias e design tokens |
 | **React Router DOM** | 6.26 | Roteamento da SPA, incluindo rotas dinâmicas |
 | **React Hook Form** | 7.53 | Formulário de contato e validações |
@@ -186,11 +184,7 @@ Cards dos cinco integrantes, com link para a página de detalhe de cada um.
 
 Formulário validado com React Hook Form, ao lado de um bloco com atalho para o FAQ, os contatos da equipe e o link do repositório.
 
-### Ícones
 
-Todos os ícones do sistema são **componentes de SVG inline**, escritos à mão, sem nenhuma biblioteca externa:
-
-`IconArrowRight` · `IconBulb` · `IconBus` · `IconChevronDown` · `IconClose` · `IconCloud` · `IconGift` · `IconGithub` · `IconLeaf` · `IconLinkedin` · `IconMenu` · `IconRecycle` · `IconRobot` · `IconTree` · `IconUsers` · `IconVideo` · `IconZoomIn`
 
 ---
 
