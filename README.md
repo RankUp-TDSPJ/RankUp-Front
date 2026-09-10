@@ -194,14 +194,6 @@ Todos os ícones do sistema são **componentes de SVG inline**, escritos à mão
 
 ---
 
-## 🎥 Vídeo de Apresentação
-
-> ⚠️ **PENDENTE:** substituir o link abaixo pela URL real do vídeo no YouTube.
-
-📺 **Assista à apresentação do projeto:** `https://youtube.com/watch?v=SUBSTITUIR_PELO_LINK_REAL`
-
----
-
 ## 🔗 Link do Repositório
 
 📂 **Repositório oficial:** [https://github.com/RankUp-TDSPJ/RankUp-Front](https://github.com/RankUp-TDSPJ/RankUp-Front)
