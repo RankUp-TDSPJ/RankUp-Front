@@ -6,7 +6,7 @@ import type { LoginRequest, Usuario } from '../../types/api'
 import { EMAIL_PATTERN, inputClasses, submitButtonClasses } from '../forms/estilos'
 import { FormField } from '../forms/FormField'
 import { Alerta } from '../ui/Alerta'
-import { AvisoServidor } from './AvisoServidor'
+import { AvisoServidor } from '../ui/AvisoServidor'
 
 type LoginFormProps = {
   onSucesso: (usuario: Usuario) => void
