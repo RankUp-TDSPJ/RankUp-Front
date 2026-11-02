@@ -1,12 +1,3 @@
-export type RankingUser = {
-  id: string
-  posicao: number
-  nome: string
-  cidade: string
-  co2: string
-  pontos: number
-}
-
 export type Integrante = {
   slug: string
   nome: string
