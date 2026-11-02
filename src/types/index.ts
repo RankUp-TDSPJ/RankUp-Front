@@ -34,6 +34,15 @@ export type Acao = {
   icone: AcaoIcone
 }
 
+export type TipoMensagem = 'sucesso' | 'erro' | 'info'
+
+/** dados que uma página manda para a próxima ao redirecionar (location.state) */
+export interface EstadoNavegacao {
+  from?: string
+  mensagem?: string
+  tipoMensagem?: TipoMensagem
+}
+
 export type ContatoFormData = {
   nome: string
   email: string
