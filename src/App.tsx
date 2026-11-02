@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { RotaProtegida } from './components/auth/RotaProtegida'
 import { Layout } from './components/layout/Layout'
+import { Admin } from './pages/Admin'
 import { Contato } from './pages/Contato'
 import { Entrar } from './pages/Entrar'
 import { Faq } from './pages/Faq'
@@ -28,6 +29,9 @@ function App() {
         <Route path="/entrar" element={<Entrar />} />
         <Route element={<RotaProtegida />}>
           <Route path="/gamificacao" element={<Gamificacao />} />
+        </Route>
+        <Route element={<RotaProtegida somenteAdmin />}>
+          <Route path="/admin" element={<Admin />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Route>
