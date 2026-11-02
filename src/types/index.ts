@@ -1,12 +1,3 @@
-export type RankingUser = {
-  id: string
-  posicao: number
-  nome: string
-  cidade: string
-  co2: string
-  pontos: number
-}
-
 export type Integrante = {
   slug: string
   nome: string
@@ -25,13 +16,15 @@ export type FaqItemData = {
   resposta: string
 }
 
-export type AcaoIcone = 'tree' | 'recycle' | 'bus' | 'bulb'
+export type AcaoIcone = 'tree' | 'recycle' | 'bus' | 'bulb' | 'leaf'
 
-export type Acao = {
-  id: string
-  nome: string
-  pontos: number
-  icone: AcaoIcone
+export type TipoMensagem = 'sucesso' | 'erro' | 'info'
+
+/** dados que uma página manda para a próxima ao redirecionar (location.state) */
+export interface EstadoNavegacao {
+  from?: string
+  mensagem?: string
+  tipoMensagem?: TipoMensagem
 }
 
 export type ContatoFormData = {

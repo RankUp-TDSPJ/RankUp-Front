@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
+import type { EstadoNavegacao } from '../../types'
 import { IconMenu } from '../icons'
 import { Button } from '../ui/Button'
 import { MobileMenu } from './MobileMenu'
@@ -9,6 +11,13 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
+  const { usuario, ehAdmin, sair } = useAuth()
+
+  function handleSair() {
+    sair()
+    const estado: EstadoNavegacao = { mensagem: 'Você saiu da sua conta.', tipoMensagem: 'info' }
+    navigate('/', { state: estado })
+  }
 
   useEffect(() => {
     setMenuOpen(false)
@@ -46,9 +55,36 @@ export function Header() {
           </ul>
         </nav>
 
-        <Button variant="small" className="hidden lg:inline-flex" onClick={() => navigate('/gamificacao')}>
-          Começar agora
-        </Button>
+        {usuario ? (
+          <div className="hidden items-center gap-4 lg:flex">
+            <Button variant="small" to="/gamificacao">
+              Meu painel
+            </Button>
+            {ehAdmin && (
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  `text-[13px] font-bold transition-colors motion-reduce:transition-none hover:text-verde-escuro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro ${
+                    isActive ? 'text-verde-escuro' : 'text-cinza'
+                  }`
+                }
+              >
+                Admin
+              </NavLink>
+            )}
+            <button
+              type="button"
+              onClick={handleSair}
+              className="text-[13px] font-bold text-cinza transition-colors motion-reduce:transition-none hover:text-verde-escuro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
+            >
+              Sair
+            </button>
+          </div>
+        ) : (
+          <Button variant="small" className="hidden lg:inline-flex" to="/entrar">
+            Entrar
+          </Button>
+        )}
 
         <button
           type="button"
@@ -60,7 +96,7 @@ export function Header() {
           <IconMenu className="h-6 w-6" />
         </button>
 
-        <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+        <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} logado={Boolean(usuario)} ehAdmin={ehAdmin} onSair={handleSair} />
       </div>
     </header>
   )

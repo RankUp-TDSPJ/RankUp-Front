@@ -1,7 +1,8 @@
-import type { RankingUser } from '../../types'
+import type { RankingItem } from '../../types/api'
+import { formatarNumero } from '../../utils/formatadores'
 
 type PodiumCardProps = {
-  user: RankingUser
+  user: RankingItem
 }
 
 const podiumStyles: Record<number, string> = {
@@ -25,10 +26,9 @@ export function PodiumCard({ user }: PodiumCardProps) {
       >
         {user.posicao}
       </p>
-      <h3 className="mb-1 font-semibold leading-snug">{user.nome}</h3>
-      <p className={`text-xs ${isFirst ? 'text-white/75' : 'text-cinza'}`}>{user.cidade}</p>
+      <h3 className="mb-1 break-words font-semibold leading-snug">{user.nome}</h3>
       <p className="mt-3 text-2xl font-bold">
-        {user.pontos}
+        {formatarNumero(user.pontuacaoTotal)}
         <span className={`ml-1 text-xs font-normal ${isFirst ? 'text-white/75' : 'text-cinza'}`}>pts</span>
       </p>
     </div>

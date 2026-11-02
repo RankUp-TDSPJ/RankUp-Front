@@ -1,6 +1,6 @@
 # 🌱 RankUp+ — Sistema de Gamificação Sustentável
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Status](https://img.shields.io/badge/status-Sprint%2004-2A6041)
 ![React](https://img.shields.io/badge/React-18.3-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6)
 ![Vite](https://img.shields.io/badge/Vite-5.4-646CFF)
@@ -23,9 +23,17 @@ A plataforma permite que o usuário:
 - 📊 Acompanhe seu desempenho em um ranking diário, semanal e mensal
 - 🎁 Troque pontos por cupons em parceiros ESG, doações a ONGs (SOS Mata Atlântica, WWF, Instituto Akatu) ou benefícios financeiros
 
-### Sobre esta entrega (Sprint 03)
+### Sobre esta entrega (Sprint 04)
 
-Esta sprint migrou o projeto de **HTML/CSS/JavaScript estático** para uma **SPA em React**. Toda a estilização foi reescrita em classes utilitárias do TailwindCSS, o JavaScript imperativo foi substituído por estado do React, e os dados que antes estavam fixos no HTML foram extraídos para arrays tipados em `src/data/`.
+Nesta sprint o front-end deixou de usar dados fixos e passou a **consumir a API Java** desenvolvida na disciplina de *Domain Driven Design Using Java*, publicada no Render e ligada ao banco Oracle da disciplina de *Building Relational Database*.
+
+- 🔐 **Login e cadastro** por e-mail, com a sessão guardada em um contexto do React (`useContext`) e no `localStorage`
+- 🏆 **Ranking e perfil** vindos da API, com rota dinâmica `/ranking/:id`
+- 🌱 **Meu painel** com pontos, CO₂ evitado, posição e nível reais, **registro de ações** (`POST`), **histórico** e **edição de perfil** (`PUT`)
+- 🛠️ **Área de administração** para listar e **excluir usuários** (`DELETE`), liberada só para administradores
+- ⏳ Tratamento de **carregamento, erro e lista vazia** em todas as telas que dependem da API
+
+A Sprint 03 tinha migrado o projeto de HTML/CSS/JavaScript para uma SPA em React + TypeScript + TailwindCSS; essa base foi mantida.
 
 ---
 
@@ -38,10 +46,13 @@ Esta sprint migrou o projeto de **HTML/CSS/JavaScript estático** para uma **SPA
 | **TypeScript** | 5.6 | Tipagem estática  |
 | **TailwindCSS** | 3.4 | Estilização por classes utilitárias e design tokens |
 | **React Router DOM** | 6.26 | Roteamento da SPA, incluindo rotas dinâmicas |
-| **React Hook Form** | 7.53 | Formulário de contato e validações |
+| **React Hook Form** | 7.53 | Formulários (contato, login, cadastro, registro de ação, perfil) e validações |
+| **Fetch API** | nativa | Requisições HTTP para a API Java |
+| **API Java (Spring Boot)** | — | Back-end do projeto, publicado no Render |
+| **Vercel** | — | Hospedagem do front-end |
 | **Git & GitHub** | — | Versionamento, branches por feature e colaboração |
 
-> ⚠️ O projeto **não usa nenhuma biblioteca de componentes de UI** (Bootstrap, Material UI, shadcn/ui, etc.) nem biblioteca de ícones. Todos os ícones são componentes de SVG inline escritos à mão em `src/components/icons/`. Também não há cliente HTTP, já que não há consumo de API.
+> ⚠️ O projeto **não usa nenhuma biblioteca de componentes de UI** (Bootstrap, Material UI, shadcn/ui, etc.) nem biblioteca de ícones. Todos os ícones são componentes de SVG inline escritos à mão em `src/components/icons/`. As requisições usam o **`fetch` nativo do navegador**, sem Axios ou outra biblioteca HTTP.
 
 ---
 
@@ -63,7 +74,9 @@ npm install
 npm run dev
 ```
 
-O projeto ficará disponível em **http://localhost:5173**.
+O projeto ficará disponível em **http://localhost:5173**, já conectado à API publicada — não é preciso configurar nada.
+
+Para apontar para outra API (por exemplo, rodando na sua máquina), copie `.env.example` para `.env.local` e ajuste a variável `VITE_API_URL`.
 
 ### Outros comandos
 
@@ -87,6 +100,8 @@ RankUp-Front/
 ├── tsconfig.node.json
 ├── tailwind.config.js            # breakpoints, paleta e animações
 ├── postcss.config.js
+├── vercel.json                   # faz as rotas da SPA funcionarem ao recarregar na Vercel
+├── .env.example                  # URL da API (opcional)
 ├── .gitignore
 ├── README.md
 │
@@ -95,54 +110,87 @@ RankUp-Front/
 │       └── prints/               # prints das telas usados nesta documentação
 │
 └── src/
-    ├── main.tsx                  # ponto de entrada, envolve o App no BrowserRouter
-    ├── App.tsx                   # apenas as rotas da aplicação
+    ├── main.tsx                  # ponto de entrada: BrowserRouter + AuthProvider
+    ├── App.tsx                   # rotas da aplicação (públicas, protegidas e de admin)
     ├── index.css                 # único CSS do projeto (diretivas do Tailwind)
     │
+    ├── services/                 # camada de integração com a API
+    │   ├── api.ts                # fetch base: URL, JSON, erros e cancelamento
+    │   ├── usuarioService.ts     # cadastro, login, perfil, edição e rotas de admin
+    │   ├── registroService.ts    # ações disponíveis, registro e histórico
+    │   └── rankingService.ts     # ranking e posição do usuário
+    │
+    ├── contexts/
+    │   └── AuthContext.tsx       # usuário logado, entrar, cadastrar e sair
+    │
+    ├── hooks/                    # useAuth, useRequisicao, useDocumentTitle, useScrollLock
+    │
     ├── components/
-    │   ├── layout/               # Header, Footer, Layout, MobileMenu, navItems
-    │   ├── ui/                   # Button, Card, SectionTitle, ImageZoom
-    │   ├── icons/                # 17 ícones em SVG inline + índice e tipos
+    │   ├── layout/               # Header, Footer, Layout, MobileMenu, MensagemDaRota
+    │   ├── ui/                   # Button, Card, Alerta, Carregando, ErroCarregamento,
+    │   │                         # EstadoVazio, NivelBadge, SectionTitle, ImageZoom
+    │   ├── auth/                 # LoginForm, CadastroForm, RotaProtegida
+    │   ├── gamificacao/          # RegistrarAcaoForm, HistoricoAcoes, EditarPerfilForm,
+    │   │                         # ActionPicker, PointsResult, StatCard
     │   ├── ranking/              # RankingTable, RankingRow, PodiumCard
-    │   ├── gamificacao/          # StatCard, ActionPicker, PointsResult
+    │   ├── admin/                # UsuarioAdminItem
+    │   ├── forms/                # ContatoForm, FormField, estilos e regras de validação
+    │   ├── icons/                # 17 ícones em SVG inline + índice e tipos
     │   ├── faq/                  # FaqAccordion, FaqItem
     │   ├── integrantes/          # MemberCard
-    │   ├── forms/                # ContatoForm, FormField
     │   └── contato/              # ContatoInfo
     │
-    ├── pages/
-    │   ├── Home.tsx
-    │   ├── Sobre.tsx
-    │   ├── Integrantes.tsx
-    │   ├── IntegranteDetalhe.tsx # rota dinâmica :slug
-    │   ├── Faq.tsx
-    │   ├── Contato.tsx
-    │   ├── Ranking.tsx
-    │   ├── RankingDetalhe.tsx    # rota dinâmica :id
-    │   ├── Gamificacao.tsx
-    │   └── NotFound.tsx
-    │
-    ├── data/                     # ranking, integrantes, faq e acoes (tipados)
-    ├── types/                    # tipos compartilhados do projeto
-    └── hooks/                    # useDocumentTitle, useScrollLock
+    ├── pages/                    # uma página por rota (Home, Ranking, Gamificacao, Admin...)
+    ├── types/
+    │   ├── api.ts                # tipos das requisições e respostas da API
+    │   └── index.ts              # tipos internos do front
+    ├── utils/
+    │   └── formatadores.ts       # números, CO₂, datas e níveis
+    └── data/                     # conteúdo fixo: integrantes e FAQ
 ```
 
 ---
 
 ## 🧭 Rotas da Aplicação
 
-| Rota | Página | Tipo |
-|------|--------|------|
-| `/` | Home | estática |
-| `/sobre` | Sobre o projeto | estática |
-| `/ranking` | Ranking dos usuários | estática |
-| `/ranking/:id` | Detalhe do usuário do ranking | **dinâmica** |
-| `/gamificacao` | Meu painel e simulador de pontos | estática |
-| `/faq` | Perguntas frequentes | estática |
-| `/integrantes` | Equipe | estática |
-| `/integrantes/:slug` | Detalhe do integrante | **dinâmica** |
-| `/contato` | Formulário de contato | estática |
-| `*` | Página 404 | fallback |
+| Rota | Página | Tipo | Acesso |
+|------|--------|------|--------|
+| `/` | Home | estática | público |
+| `/sobre` | Sobre o projeto | estática | público |
+| `/ranking` | Ranking dos usuários | estática | público |
+| `/ranking/:id` | Perfil público do usuário | **dinâmica** | público |
+| `/entrar` | Login e cadastro | estática | público |
+| `/gamificacao` | Meu painel: registrar ações, histórico e perfil | estática | 🔒 logado |
+| `/admin` | Administração de usuários | estática | 🔒 admin |
+| `/faq` | Perguntas frequentes | estática | público |
+| `/integrantes` | Equipe | estática | público |
+| `/integrantes/:slug` | Detalhe do integrante | **dinâmica** | público |
+| `/contato` | Formulário de contato | estática | público |
+| `*` | Página 404 | fallback | público |
+
+**Redirecionamentos com mensagem:** quem abre uma rota 🔒 sem login vai para `/entrar` (e volta para onde queria depois de entrar); quem não é admin e abre `/admin` volta para o painel; um `/ranking/:id` inexistente volta para o ranking com o aviso *"Não encontramos esse usuário"*.
+
+---
+
+## 🔌 Integração com a API
+
+Todas as chamadas ficam em `src/services/` — nenhum componente usa `fetch` diretamente. As respostas são tipadas em `src/types/api.ts`, e o hook `useRequisicao` devolve o estado da tela como `carregando | sucesso | erro`, para que toda página trate os três casos.
+
+| Método | Endpoint | Onde é usado |
+|--------|----------|--------------|
+| `POST` | `/usuarios` | Cadastro (`/entrar`) |
+| `POST` | `/login` | Login (`/entrar`) |
+| `GET` | `/usuarios/{id}` | Perfil no detalhe do ranking e no painel |
+| `PUT` | `/usuarios/{id}` | Edição de perfil no painel |
+| `GET` | `/acoes` | Ações disponíveis, pontos e fator de CO₂ |
+| `POST` | `/usuarios/{id}/registros` | Registro de ação no painel |
+| `GET` | `/usuarios/{id}/registros` | Histórico de ações no painel |
+| `GET` | `/ranking?limite=10` | Página de ranking |
+| `GET` | `/usuarios/{id}/posicao` | Posição no detalhe do ranking e no painel |
+| `GET` | `/usuarios` | Lista de usuários (admin) |
+| `DELETE` | `/usuarios/{id}` | Exclusão de usuário (admin) |
+
+> A API roda no plano gratuito do Render, que desliga o servidor sem uso. O **primeiro acesso pode levar alguns segundos** — as telas avisam isso enquanto carregam.
 
 ---
 
@@ -152,19 +200,31 @@ RankUp-Front/
 
 ![Página inicial do RankUp+](./public/img/prints/home.png)
 
-Tela de entrada com o conceito da plataforma — *"A rede social que te paga pra cuidar do planeta"* —, a seção **Como funciona** com os três passos (gravar a ação, validação por IA e troca por recompensas) e o bloco de impacto coletivo.
+Tela de entrada com o conceito da plataforma — *"A rede social que te paga pra cuidar do planeta"* —, a seção **Como funciona** e o bloco de impacto coletivo. O botão **Entrar** no cabeçalho leva ao login.
+
+### Login e Cadastro
+
+![Tela de login e cadastro](./public/img/prints/entrar.png)
+
+Abas **Entrar** e **Criar conta**. O login é só por e-mail; os erros da API (e-mail não encontrado, e-mail já cadastrado) aparecem no próprio formulário.
 
 ### Ranking dos Usuários
 
 ![Ranking de usuários](./public/img/prints/ranking.png)
 
-Pódio dos três primeiros colocados e a tabela dos 10 usuários que mais economizaram CO₂ no mês, renderizada por `.map()` sobre `src/data/ranking.ts`. Clicar em uma linha abre o detalhe do usuário. Em telas estreitas a tabela ganha scroll horizontal.
+Pódio e tabela com os 10 usuários que mais pontuaram, vindos de `GET /ranking`. Quem está logado vê a própria linha destacada com a marca **Você**. Clicar em um nome abre o perfil.
+
+### Perfil no Ranking
+
+![Perfil de um usuário do ranking](./public/img/prints/ranking-detalhe.png)
+
+Rota dinâmica `/ranking/:id`, com nível, pontos, CO₂ evitado e posição geral do usuário.
 
 ### Gamificação — Meu Painel
 
-![Painel do usuário e simulador de pontos](./public/img/prints/gamificacao.png)
+![Painel do usuário](./public/img/prints/gamificacao.png)
 
-Painel com pontos acumulados, ações realizadas, CO₂ economizado e posição no ranking, além do **simulador de pontos**: o usuário escolhe uma ação e vê quantos pontos ganharia.
+Pontos, ações realizadas, CO₂ evitado e posição reais; formulário para **registrar uma ação** com prévia dos pontos; **edição de perfil**; e o **histórico** de ações do mais recente para o mais antigo.
 
 ### Sobre o Projeto
 
@@ -184,13 +244,23 @@ Cards dos cinco integrantes, com link para a página de detalhe de cada um.
 
 Formulário validado com React Hook Form, ao lado de um bloco com atalho para o FAQ, os contatos da equipe e o link do repositório.
 
-
-
 ---
 
-## 🔗 Link do Repositório
+## 🔗 Como Usar
 
-📂 **Repositório oficial:** [https://github.com/RankUp-TDSPJ/RankUp-Front](https://github.com/RankUp-TDSPJ/RankUp-Front)
+| | Link |
+|---|---|
+| 📂 **Repositório no GitHub** | [https://github.com/RankUp-TDSPJ/RankUp-Front](https://github.com/RankUp-TDSPJ/RankUp-Front) |
+| 🌐 **Aplicação na Vercel** | _a adicionar após o deploy_ |
+| 🎥 **Vídeo no YouTube** | _a adicionar_ |
+| ⚙️ **API Java (Render)** | [https://rankup-java.onrender.com](https://rankup-java.onrender.com) — exemplo: [`/acoes`](https://rankup-java.onrender.com/acoes) |
+
+**Testando a aplicação:**
+
+1. Abra a aplicação na Vercel e clique em **Entrar → Criar conta** (nome, e-mail e idade).
+2. No **Meu painel**, escolha uma ação, informe a quantidade e clique em **Registrar ação** — os pontos, o CO₂ e a posição atualizam na hora.
+3. Veja seu nome no **Ranking** e edite seus dados em **Meu perfil**.
+4. Para a área de **Admin**, entre com uma conta de administrador.
 
 ---
 
