@@ -2,14 +2,17 @@ import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useScrollLock } from '../../hooks/useScrollLock'
 import { IconClose } from '../icons'
+import { Button } from '../ui/Button'
 import { NAV_ITEMS } from './navItems'
 
 type MobileMenuProps = {
   open: boolean
   onClose: () => void
+  logado: boolean
+  onSair: () => void
 }
 
-export function MobileMenu({ open, onClose }: MobileMenuProps) {
+export function MobileMenu({ open, onClose, logado, onSair }: MobileMenuProps) {
   useScrollLock(open)
 
   useEffect(() => {
@@ -54,6 +57,29 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           </li>
         ))}
       </ul>
+      <div className="flex flex-col gap-3 border-t border-borda pt-4">
+        {logado ? (
+          <>
+            <Button variant="small" to="/gamificacao" onClick={onClose}>
+              Meu painel
+            </Button>
+            <button
+              type="button"
+              onClick={() => {
+                onClose()
+                onSair()
+              }}
+              className="text-[13px] font-bold text-cinza focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro"
+            >
+              Sair
+            </button>
+          </>
+        ) : (
+          <Button variant="small" to="/entrar" onClick={onClose}>
+            Entrar
+          </Button>
+        )}
+      </div>
     </div>
   )
 }
