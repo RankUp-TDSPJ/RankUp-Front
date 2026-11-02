@@ -251,7 +251,7 @@ Formulário validado com React Hook Form, ao lado de um bloco com atalho para o 
 | | Link |
 |---|---|
 | 📂 **Repositório no GitHub** | [https://github.com/RankUp-TDSPJ/RankUp-Front](https://github.com/RankUp-TDSPJ/RankUp-Front) |
-| 🌐 **Aplicação na Vercel** | _a adicionar após o deploy_ |
+| 🌐 **Aplicação na Vercel** | [https://rank-up-front.vercel.app](https://rank-up-front.vercel.app) |
 | 🎥 **Vídeo no YouTube** | _a adicionar_ |
 | ⚙️ **API Java (Render)** | [https://rankup-java.onrender.com](https://rankup-java.onrender.com) — exemplo: [`/acoes`](https://rankup-java.onrender.com/acoes) |
 
