@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form'
 import { useAuth } from '../../hooks/useAuth'
 import { ApiError } from '../../services/api'
 import type { CadastroUsuarioRequest, Usuario } from '../../types/api'
-import { EMAIL_PATTERN, inputClasses, submitButtonClasses } from '../forms/estilos'
+import { inputClasses, submitButtonClasses } from '../forms/estilos'
 import { FormField } from '../forms/FormField'
+import { regrasEmail, regrasIdade, regrasNome } from '../forms/regrasUsuario'
 import { Alerta } from '../ui/Alerta'
 import { AvisoServidor } from '../ui/AvisoServidor'
 
@@ -49,10 +50,7 @@ export function CadastroForm({ onSucesso }: CadastroFormProps) {
           placeholder="Digite seu nome"
           aria-invalid={errors.nome ? 'true' : 'false'}
           className={inputClasses(Boolean(errors.nome))}
-          {...register('nome', {
-            required: 'O nome precisa ter pelo menos 3 letras.',
-            minLength: { value: 3, message: 'O nome precisa ter pelo menos 3 letras.' },
-          })}
+          {...register('nome', regrasNome)}
         />
       </FormField>
 
@@ -64,10 +62,7 @@ export function CadastroForm({ onSucesso }: CadastroFormProps) {
           placeholder="exemplo@email.com"
           aria-invalid={errors.email ? 'true' : 'false'}
           className={inputClasses(Boolean(errors.email))}
-          {...register('email', {
-            required: 'Digite um e-mail válido.',
-            pattern: { value: EMAIL_PATTERN, message: 'Digite um e-mail válido.' },
-          })}
+          {...register('email', regrasEmail)}
         />
       </FormField>
 
@@ -79,11 +74,7 @@ export function CadastroForm({ onSucesso }: CadastroFormProps) {
           placeholder="Ex.: 25"
           aria-invalid={errors.idade ? 'true' : 'false'}
           className={inputClasses(Boolean(errors.idade))}
-          {...register('idade', {
-            valueAsNumber: true,
-            required: 'Digite sua idade.',
-            validate: (idade) => (Number.isInteger(idade) && idade >= 1 && idade <= 120) || 'Digite uma idade entre 1 e 120.',
-          })}
+          {...register('idade', regrasIdade)}
         />
       </FormField>
 
