@@ -11,7 +11,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
-  const { usuario, sair } = useAuth()
+  const { usuario, ehAdmin, sair } = useAuth()
 
   function handleSair() {
     sair()
@@ -60,6 +60,18 @@ export function Header() {
             <Button variant="small" to="/gamificacao">
               Meu painel
             </Button>
+            {ehAdmin && (
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  `text-[13px] font-bold transition-colors motion-reduce:transition-none hover:text-verde-escuro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-verde-escuro ${
+                    isActive ? 'text-verde-escuro' : 'text-cinza'
+                  }`
+                }
+              >
+                Admin
+              </NavLink>
+            )}
             <button
               type="button"
               onClick={handleSair}
@@ -84,7 +96,7 @@ export function Header() {
           <IconMenu className="h-6 w-6" />
         </button>
 
-        <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} logado={Boolean(usuario)} onSair={handleSair} />
+        <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} logado={Boolean(usuario)} ehAdmin={ehAdmin} onSair={handleSair} />
       </div>
     </header>
   )

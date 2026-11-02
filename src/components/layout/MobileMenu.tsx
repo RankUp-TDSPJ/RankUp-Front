@@ -9,10 +9,11 @@ type MobileMenuProps = {
   open: boolean
   onClose: () => void
   logado: boolean
+  ehAdmin: boolean
   onSair: () => void
 }
 
-export function MobileMenu({ open, onClose, logado, onSair }: MobileMenuProps) {
+export function MobileMenu({ open, onClose, logado, ehAdmin, onSair }: MobileMenuProps) {
   useScrollLock(open)
 
   useEffect(() => {
@@ -63,6 +64,11 @@ export function MobileMenu({ open, onClose, logado, onSair }: MobileMenuProps) {
             <Button variant="small" to="/gamificacao" onClick={onClose}>
               Meu painel
             </Button>
+            {ehAdmin && (
+              <Button variant="ghost" to="/admin" onClick={onClose} className="!px-[18px] !py-2 !text-[13px]">
+                Admin
+              </Button>
+            )}
             <button
               type="button"
               onClick={() => {
