@@ -16,14 +16,7 @@ export type FaqItemData = {
   resposta: string
 }
 
-export type AcaoIcone = 'tree' | 'recycle' | 'bus' | 'bulb'
-
-export type Acao = {
-  id: string
-  nome: string
-  pontos: number
-  icone: AcaoIcone
-}
+export type AcaoIcone = 'tree' | 'recycle' | 'bus' | 'bulb' | 'leaf'
 
 export type TipoMensagem = 'sucesso' | 'erro' | 'info'
 
