@@ -1,4 +1,4 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
+import { createContext, useCallback, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 import { cadastrarUsuario, login } from '../services/usuarioService'
 import type { CadastroUsuarioRequest, Usuario } from '../types/api'
@@ -38,23 +38,31 @@ function salvarSessao(usuario: Usuario | null) {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [usuario, setUsuario] = useState<Usuario | null>(lerSessao)
 
-  useEffect(() => {
-    salvarSessao(usuario)
-  }, [usuario])
-
-  const entrar = useCallback(async (email: string) => {
-    const logado = await login({ email })
-    setUsuario(logado)
-    return logado
+  // salva junto com a troca de estado (e não num useEffect) para um F5 logo após o login não perder a sessão
+  const trocarUsuario = useCallback((novo: Usuario | null) => {
+    salvarSessao(novo)
+    setUsuario(novo)
   }, [])
 
-  const cadastrar = useCallback(async (dados: CadastroUsuarioRequest) => {
-    const criado = await cadastrarUsuario(dados)
-    setUsuario(criado)
-    return criado
-  }, [])
+  const entrar = useCallback(
+    async (email: string) => {
+      const logado = await login({ email })
+      trocarUsuario(logado)
+      return logado
+    },
+    [trocarUsuario],
+  )
 
-  const sair = useCallback(() => setUsuario(null), [])
+  const cadastrar = useCallback(
+    async (dados: CadastroUsuarioRequest) => {
+      const criado = await cadastrarUsuario(dados)
+      trocarUsuario(criado)
+      return criado
+    },
+    [trocarUsuario],
+  )
+
+  const sair = useCallback(() => trocarUsuario(null), [trocarUsuario])
 
   const value = useMemo<AuthContextValue>(
     () => ({
@@ -62,10 +70,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       ehAdmin: usuario?.tipo === 'ADMIN',
       entrar,
       cadastrar,
-      atualizarSessao: setUsuario,
+      atualizarSessao: trocarUsuario,
       sair,
     }),
-    [usuario, entrar, cadastrar, sair],
+    [usuario, entrar, cadastrar, sair, trocarUsuario],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
